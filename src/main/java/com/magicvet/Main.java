@@ -10,12 +10,7 @@ public class Main {
     static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
     static String NAME_PATTERN = "^[A-Z][a-z]+(-[A-Z][a-z]+)*";
 
-    public Main() {
-    }
-
-    public static void main(String[] args) {
-        run();
-    }
+    public static void main(String[] args) { run(); }
 
     static void run() {
         if (auth()) {
