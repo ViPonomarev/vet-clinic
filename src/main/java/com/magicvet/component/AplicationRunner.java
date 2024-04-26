@@ -8,8 +8,8 @@ import main.java.com.magicvet.service.PetService;
 
 public class AplicationRunner {
 
-    private ClientService clientService = new ClientService();
-    private PetService petService = new PetService();
+    private final ClientService clientService = new ClientService();
+    private final PetService petService = new PetService();
 
     public void run() {
         if (Authenticator.auth()) {
@@ -25,6 +25,7 @@ public class AplicationRunner {
                     client.setPet(pet);
                     pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
                     System.out.println("Pet has been added.");
+                    System.out.println(client);
                 } else {
                     System.out.println("Pet can be added later.");
                 }

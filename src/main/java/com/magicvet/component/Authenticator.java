@@ -2,11 +2,9 @@ package main.java.com.magicvet.component;
 
 import main.java.com.magicvet.Main;
 
-import java.util.Scanner;
-
 public class Authenticator {
 
-    static String PASSWORD = "d";
+    private final static String PASSWORD = "d";
 
     public static boolean auth() {
         boolean accepted = false;
