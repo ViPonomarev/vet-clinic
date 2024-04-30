@@ -2,12 +2,22 @@ package main.java.com.magicvet.model;
 
 import java.util.Objects;
 
-public abstract class Pet {
+public class Pet {
     private String type;
     private String sex;
     private String age;
     private String name;
     private String ownerName;
+
+    public Pet() { }
+
+    public Pet(String type, String sex, String age, String name, String ownerName) {
+        this.type = type;
+        this.sex = sex;
+        this.age = age;
+        this.name = name;
+        this.ownerName = ownerName;
+    }
 
     @Override
     public String toString() {
