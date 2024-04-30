@@ -8,11 +8,11 @@ public class Dog extends Pet{
 
     @Override
     public String toString() {
-        return "type = " + getType()
+        return  "{type = " + getType()
                 + ", age = " + getAge()
                 + ", name = " + getName()
                 + ", sex = " + getSex()
-                + ", size = " + size;
+                + ", size = " + size + "}";
     }
     @Override
     public boolean equals(Object o) {
