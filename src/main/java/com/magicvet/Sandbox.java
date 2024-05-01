@@ -1,7 +1,7 @@
 package main.java.com.magicvet;
 
-import main.java.com.magicvet.comporator.PetAgeComparator;
-import main.java.com.magicvet.comporator.PetNameComparator;
+import main.java.com.magicvet.comparator.PetAgeComparator;
+import main.java.com.magicvet.comparator.PetNameComparator;
 import main.java.com.magicvet.model.Pet;
 
 import java.util.Arrays;
