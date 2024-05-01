@@ -6,7 +6,7 @@ import main.java.com.magicvet.model.Pet;
 import main.java.com.magicvet.service.ClientService;
 import main.java.com.magicvet.service.PetService;
 
-public class AplicationRunner {
+public class ApplicationRunner {
 
     private final ClientService clientService = new ClientService();
     private final PetService petService = new PetService();
