@@ -18,7 +18,9 @@ public class Dog extends Pet{
                 + ", age = " + getAge()
                 + ", name = " + getName()
                 + ", sex = " + getSex()
-                + ", size = " + size + "}";
+                + ", size = " + size
+                + ", health state = " + getHealthState()
+                + ", registrationDate = " + getRegistrationDate().format(FORMATTER) + "}";
     }
     @Override
     public boolean equals(Object o) {
