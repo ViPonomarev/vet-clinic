@@ -16,24 +16,37 @@ public class ApplicationRunner {
             Client client = clientService.registerNewClient();
 
             if (client != null) {
-
-                System.out.print("Add a new pet? (yes / no): ");
-                String addPet = Main.SCANNER.nextLine();
-
-                if (addPet.equals("yes")) {
-                    Pet pet = petService.registerNewPet();
-
-                    if (pet != null) {
-                        client.setPet(pet);
-                        pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
-                        System.out.println("Pet has been added.");
-                    }
-
-                    System.out.println(client);
-                } else {
-                    System.out.println("Pet can be added later.");
-                }
+                registerPet(client);
+                System.out.println(client);
             }
         }
     }
+
+    private void registerPet(Client client) {
+        boolean continueAddPets = true;
+
+        while (continueAddPets) {
+            addPet(client);
+
+            System.out.print("Do yuo want to add more pets for the current clients? (y/n): ");
+            String answer = Main.SCANNER.nextLine();
+
+            if ("n".equals(answer)) {
+                continueAddPets = false;
+            }
+        }
+    }
+
+    private void addPet(Client client) {
+        System.out.println("Adding a new pet.");
+
+        Pet pet = petService.registerNewPet();
+
+        if (pet != null) {
+            client.addPet(pet);
+            pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
+            System.out.println("Pet has been added.");
+        }
+    }
+
 }

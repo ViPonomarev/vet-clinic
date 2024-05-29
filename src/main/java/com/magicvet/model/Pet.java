@@ -29,7 +29,8 @@ public class Pet {
 
     @Override
     public String toString() {
-        return  "{type = " + type
+        return  "Pet {"
+                + "type = " + type
                 + ", age = " + age
                 + ", name = " + name
                 + ", sex = " + sex
