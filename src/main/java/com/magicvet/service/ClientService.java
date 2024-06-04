@@ -20,10 +20,10 @@ public class ClientService {
         if (emailIsValid(email)) {
             System.out.print("Firs name: ");
             String firstName = Main.SCANNER.nextLine();
-            if (nameInvalid(firstName)) {
+            if (nameIsValid(firstName)) {
                 System.out.print("Last name: ");
                 String lastName = Main.SCANNER.nextLine();
-                if (nameInvalid(lastName)) {
+                if (nameIsValid(lastName)) {
                     client = buildClient(email, firstName, lastName);
                     System.out.println("New client: " + client.getFirstName() + " "
                             + client.getLastName() + " ("
@@ -48,8 +48,8 @@ public class ClientService {
         client.setLastName(lastName);
 
         System.out.print("Location: ");
-        String location = Main.SCANNER.nextLine();
-        client.setLocation(Client.Location.valueOf(location));
+        String locationInput = Main.SCANNER.nextLine();
+        client.setLocation(Client.Location.locationFromString(locationInput));
 
         return client;
     }
@@ -60,7 +60,7 @@ public class ClientService {
         return matcher.matches();
     }
 
-    private static boolean nameInvalid(String name) {
+    private static boolean nameIsValid(String name) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();

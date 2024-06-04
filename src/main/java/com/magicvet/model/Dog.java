@@ -16,11 +16,12 @@ public class Dog extends Pet{
     public String toString() {
         return  "Pet {"
                 + "type = " + getType()
+                + ", sex = " + getSex()
                 + ", age = " + getAge()
                 + ", name = " + getName()
-                + ", sex = " + getSex()
-                + ", size = " + size
+                + ", size = " + getSize()
                 + ", health state = " + getHealthState()
+                + ", ownerName = " + getOwnerName()
                 + ", registrationDate = " + getRegistrationDate().format(FORMATTER) + "}";
     }
     @Override
@@ -57,6 +58,18 @@ public class Dog extends Pet{
 
         Size(int value) {
             this.value = value;
+        }
+
+        public static Size sizeFromString(String value) {
+            for (Size size : values()) {
+                if (size.toString().equals(value)) {
+                    return size;
+                }
+            }
+
+            System.out.println("Unable to parse value '" + value + "'. Using default value: " + UNKNOWN);
+
+            return UNKNOWN;
         }
 
         public int getValue() {

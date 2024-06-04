@@ -40,18 +40,13 @@ public class PetService {
 
         System.out.print("Health status (EXCELLENT / NORMAL / BAD): ");
         String healthState = Main.SCANNER.nextLine();
-        if (healthState.equals("BAD") || healthState.equals("EXCELLENT") || healthState.equals("NORMAL")) {
-            pet.setHealthState(Pet.HealthState.valueOf(healthState));
-        } else {
-            pet.setHealthState(Pet.HealthState.UNKNOWN);
-            System.out.println("Wrong health state");
-        }
+        pet.setHealthState(Pet.HealthState.healthStateFromString(healthState));
 
 
         if (type.equals(DOG_TYPE)) {
             System.out.print("Size (XS / S / M / L / XL / XXL): ");
             String size = Main.SCANNER.nextLine();
-            ((Dog) pet).setSize(Dog.Size.valueOf(size));
+            ((Dog) pet).setSize(Dog.Size.sizeFromString(size));
         }
 
         return pet;

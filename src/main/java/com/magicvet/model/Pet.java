@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Pet {
 
-    protected static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
+    static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
 
     private String type;
     private String sex;
@@ -34,6 +34,7 @@ public class Pet {
                 + ", age = " + age
                 + ", name = " + name
                 + ", sex = " + sex
+                + ", ownerName = " + ownerName
                 + ", health state = " + healthState
                 + ", registrationDate = " + registrationDate.format(FORMATTER) + "}";
     }
@@ -119,6 +120,18 @@ public class Pet {
 
         HealthState(int value) {
             this.value = value;
+        }
+
+        public static HealthState healthStateFromString(String value) {
+            for (HealthState healthState : values()) {
+                if (healthState.toString().equals(value)) {
+                    return healthState;
+                }
+            }
+
+            System.out.println("Unable to parse value '" + value + "'. Using default value: " + UNKNOWN);
+
+            return UNKNOWN;
         }
 
         public int getValue() {
